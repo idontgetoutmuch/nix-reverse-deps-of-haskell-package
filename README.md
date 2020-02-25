@@ -19,7 +19,7 @@ and see what breaks.
 For The Random Team:
 
 ```
-nix-build -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz my.nix --keep-going
+nix-build -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz randomDeps.nix --keep-going
 ```
 
 but also
