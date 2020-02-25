@@ -16,6 +16,14 @@ and see what breaks.
 
 ## Usage
 
+For The Random Team:
+
+```
+nix-build -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/19.09.tar.gz my.nix --keep-going
+```
+
+but also
+
 Usage instructions are described at the top of [`default.nix`](./default.nix).
 
 ## Other Methods
