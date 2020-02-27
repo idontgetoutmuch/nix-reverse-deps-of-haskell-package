@@ -1,7 +1,12 @@
 let
   myHaskellPackageOverlay = self: super: {
     haskellPackages = super.haskellPackages.override {
-      overrides = hself: hsuper: {
+    overrides = hself: hsuper: {
+        mkDerivation = args: hsuper.mkDerivation (args // {
+          doCheck = false;
+          doHaddock = false;
+          jailbreak = true;
+        });
         random =
           let newRandomSrc = builtins.fetchGit {
                 url = "https://github.com/idontgetoutmuch/random.git";
@@ -12,7 +17,7 @@ let
           # Since cabal2nix has a transitive dependency on random, we need to
           # get the callCabal2nix function from the normal haskellPackages that
           # is not being overridden.
-          (import <nixpkgs> {}).haskellPackages.callCabal2nix "random" newRandomSrc { };
+          (import <nixpkgs> {}).haskell.lib.dontCheck ((import <nixpkgs> {}).haskellPackages.callCabal2nix "random" newRandomSrc { });
       };
     };
   };
