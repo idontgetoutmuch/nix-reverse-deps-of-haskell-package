@@ -76,7 +76,7 @@
 , lib ? nixpkgs.lib
 , stdenv ? nixpkgs.stdenv
 , haskell ? nixpkgs.haskell
-, haskellPackages ? nixpkgs.haskellPackages
+, haskellPackages ? nixpkgs.myHaskellPackages
 , buildEnv ? nixpkgs.buildEnv
 , runCommand ? nixpkgs.runCommand
 }:
